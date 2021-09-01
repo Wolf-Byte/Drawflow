@@ -1172,9 +1172,11 @@ export default class Drawflow {
     return nodes;
   }
 
-  addNode (name, num_in, num_out, ele_pos_x, ele_pos_y, classoverride, data, html, typenode = false) {
+  addNode (name, num_in, num_out, ele_pos_x, ele_pos_y, classoverride, data, html, typenode = false, id = false) {
     if (this.useuuid) {
       var newNodeId = this.getUuid();
+    } else if (id) {
+      var newNodeId = id;
     } else {
       var newNodeId = this.nodeId;
     }
@@ -1295,7 +1297,7 @@ export default class Drawflow {
     }
     this.drawflow.drawflow[this.module].data[newNodeId] = json;
     this.dispatch('nodeCreated', newNodeId);
-    if (!this.useuuid) {
+    if (!this.useuuid && !id) {
       this.nodeId++;
     }
     return newNodeId;

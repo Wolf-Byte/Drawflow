@@ -197,7 +197,7 @@ editor.changeModule('Home');
 ## Nodes
 Adding a node is simple.
 ```javascript
-editor.addNode(name, inputs, outputs, posx, posy, class, data, html);
+editor.addNode(name, inputs, outputs, posx, posy, class, data, html, id);
 ```
 Parameter | Type | Description
 --- | --- | ---
@@ -210,6 +210,7 @@ Parameter | Type | Description
 `data` | json | Data passed to node
 `html` | text | HTML drawn on node or `name` of register node.
 `typenode` | boolean & text | Default `false`, `true` for Object HTML, `vue` for vue
+`id` | number, text | Default `false`, if a value is provided the node id will be set to the value.
 
 You can use the attribute `df-*` in **inputs, textarea or select** to synchronize with the node data and **contenteditable**.
 
